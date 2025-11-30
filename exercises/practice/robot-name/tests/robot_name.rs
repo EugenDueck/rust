@@ -102,9 +102,9 @@ fn names_should_not_follow_predictable_sequence() {
 
     // just checking the easiest kind of predictable sequences here: the difference between
     // numerical representation of consecutive names is always the same
-    let d = nums[1] - nums[0];
+    let d = nums[1].wrapping_sub(nums[0]);
     assert!(
-        !nums.windows(2).all(|w| w[1] - w[0] == d),
+        !nums.windows(2).all(|w| w[1].wrapping_sub(w[0]) == d),
         "Name sequence is very predictable: The difference between the numerical representation of names is {d}"
     )
 }
